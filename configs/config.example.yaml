@@ -1,0 +1,46 @@
+# Drilling SSH 隧道管理工具配置文件
+# 复制此文件为 config.yaml 并修改相关配置
+
+server:
+  # 服务监听地址（默认仅本地访问）
+  host: "127.0.0.1"
+  # 如需远程访问可设置为 "0.0.0.0"
+  # host: "0.0.0.0"
+
+  # 服务端口
+  port: "8080"
+
+database:
+  # SQLite 数据库文件路径
+  path: "./drilling.db"
+
+ssh:
+  # SSH 连接超时时间
+  timeout: "30s"
+
+  # SSH 保活间隔
+  keepalive: "10s"
+
+  # 最大连接数
+  max_connections: 100
+
+logging:
+  # 日志级别: debug, info, warn, error
+  level: "info"
+
+  # 日志文件路径
+  file: "./drilling.log"
+
+security:
+  # 用于加密存储密码和私钥的密钥（32字符）
+  # 生产环境中请修改此密钥并妥善保管
+  encrypt_key: "your-32-character-encryption-key-here"
+
+# 调试模式（生产环境请设置为 false）
+debug: false
+
+# 可选的基础认证配置（如需要）
+# auth:
+#   enabled: false
+#   username: "admin"
+#   password: "password"
